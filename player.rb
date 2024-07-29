@@ -6,8 +6,4 @@ class Player
     @player_id = player_id
     @score = 0
   end
-
-  def add_score(points)
-    @score += points
-  end
 end

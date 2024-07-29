@@ -91,10 +91,9 @@ class GreedGame
         end
 
         if final_showdown
-            puts "A Player has scored #{ENDING_SCORE} points - Final Show down"
+          puts "A Player has scored #{ENDING_SCORE} points - Final Show down"
           break
         else
-
           turn += 1
         end
     end
