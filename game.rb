@@ -1,5 +1,5 @@
-# include GreedGame
 require_relative "./greed_game.rb"
+
 puts "Enter number of players"
 players = gets.to_i
 

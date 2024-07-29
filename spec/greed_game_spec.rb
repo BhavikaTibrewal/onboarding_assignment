@@ -17,6 +17,8 @@ RSpec.describe GreedGame do
 
   describe '#calculate_score' do
     it 'returns correct score for various dice rolls' do
+      expect(game.calculate_score([])).to eq([0, {}])
+      expect(game.calculate_score([])).to eq([0, {}])
       expect(game.calculate_score([1, 1, 1, 5, 5])).to eq([1100, {}])
       expect(game.calculate_score([2, 3, 4, 6, 2])).to eq([0, {2=>2, 3=>1, 4=>1, 6=>1}])
       expect(game.calculate_score([1, 2, 3, 4, 5])).to eq([150, {2=>1, 3=>1, 4=>1}])

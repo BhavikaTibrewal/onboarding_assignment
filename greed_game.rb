@@ -1,9 +1,12 @@
 require './player'
 require './dice'
+
 class GreedGame
   attr_reader :players
+
   STARTING_SCORE = 300
   ENDING_SCORE = 3000
+
   def initialize(num_of_players)
     @players =[]
     num_of_players.times {|i| @players << Player.new(i+1)}
@@ -36,24 +39,17 @@ class GreedGame
   end
 
   def play_turn(number_of_dices, player, turn_score)
-
       dices = Dice.roll(number_of_dices)
       puts "Player #{player.player_id} rolls: #{dices}"
-
       score, non_scoring_dices = calculate_score(dices)
-
       puts "Score in this round: #{score}"
-
       turn_score += score
-
       return 0 if score.zero?
-
       return turn_score if non_scoring_dices.empty?
 
       print "Do you want to roll the non-scoring #{non_scoring_dices} dices?(y/n):"
 
       roll_again = gets.chomp.downcase
-
       num_non_scoring_dices = 0
       if roll_again == 'y'
         non_scoring_dices.each{|_, count| num_non_scoring_dices += count}
@@ -69,25 +65,15 @@ class GreedGame
   end
 
   def play_game
-
     turn = 1
     
     loop do 
         puts "Turn #{turn}"
-
         @players.each do |player|
-
           turn_score = play_turn(5, player, 0)
-
-          # If total score has increased don't check score>300
-          if (player.score === 0) && (turn_score >= STARTING_SCORE)
-            player.score += turn_score
-          elsif player.score > 0
-            player.score += turn_score
-          end
-
+          player.in_game = true if player.score == 0 && turn_score > STARTING_SCORE
+          player.score += turn_score if player.in_game
           puts "Total Score: #{player.score}"
-
         end
 
         if final_showdown
