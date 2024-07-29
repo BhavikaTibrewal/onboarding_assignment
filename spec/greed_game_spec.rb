@@ -37,7 +37,7 @@ RSpec.describe GreedGame do
 
   describe '#final_showdown' do
     it 'returns true if any player has a score greater than ENDING_SCORE' do
-      game.players.first.score = 600
+      game.players.first.score = 3100
       expect(game.final_showdown).to be true
     end
 

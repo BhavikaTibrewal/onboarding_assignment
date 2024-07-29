@@ -3,7 +3,7 @@ require './dice'
 class GreedGame
   attr_reader :players
   STARTING_SCORE = 300
-  ENDING_SCORE = 500
+  ENDING_SCORE = 3000
   def initialize(num_of_players)
     @players =[]
     num_of_players.times {|i| @players << Player.new(i+1)}
