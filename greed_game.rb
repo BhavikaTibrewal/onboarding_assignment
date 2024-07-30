@@ -86,7 +86,7 @@ class GreedGame
 
     puts "---------------------"
     @players.each { |player|
-      player.score = play_turn(5, player, 0)
+      player.score += play_turn(5, player, 0)
     }
 
     winner = @players.max_by{|player| player.score }
