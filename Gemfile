@@ -1,6 +1,10 @@
-source "https://rubygems.org".
+source "https://rubygems.org"
 
-gem "rackup", "~> 2.1"
 
-gem "sinatra", "~> 4.0"
+gem "sinatra", "~> 2.0"
 
+gem "rspec", "~> 3.9"
+
+
+gem "rack", "~> 2.2"
+gem 'rack-test'

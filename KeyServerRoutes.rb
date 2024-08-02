@@ -9,6 +9,7 @@ class KeyServerRoutes < Sinatra::Application
   keyServer = KeyServerModel.new
 
   get '/' do
+    status 200
     "Server running"
   end
 
@@ -36,7 +37,7 @@ class KeyServerRoutes < Sinatra::Application
     unblocked, message = keyServer.unblock_key(key)
     if unblocked
       status 200
-      body "unblocked key"
+      body "Key unblocked successfully."
     else
       status 400
       message
@@ -56,6 +57,7 @@ class KeyServerRoutes < Sinatra::Application
 
   # Endpoint to keep the key alive for next 5 min
   get '/key/keep-alive' do
+    key = params['key']
     refreshed, message = keyServer.refresh_key(key)
     if refreshed
       status 200

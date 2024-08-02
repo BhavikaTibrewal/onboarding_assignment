@@ -37,9 +37,9 @@ class KeyServerModel
   end
 
   def delete_key(key)
+    return false, "Key Already Deleted" if @deleted_keys.include?key
     # check if key is valid
     return false, "Invalid key" unless @keys_in_use.key? key or @available_keys.key? key
-    return false, "Key Already Deleted" if @deleted_keys.include?key
     @available_keys.delete key
     @keys_in_use.delete key
     @deleted_keys.add key
