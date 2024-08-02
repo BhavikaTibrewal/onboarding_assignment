@@ -1,4 +1,5 @@
 require "securerandom"
+
 class Key
   attr_accessor :key_name
 

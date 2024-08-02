@@ -1,9 +1,14 @@
 
 - Download dependencies
 ```
-gem install
+bundle install
 ```
 - Run the server
 ```
-ruby -rsinatra -e'set :public_folder, "."; set :port, 8000'
+ruby app.rb
+```
+
+- Run the test
+```
+rspec
 ```

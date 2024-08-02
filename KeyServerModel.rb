@@ -1,4 +1,5 @@
 require "./key"
+
 class KeyServerModel
   KEY_LIFE = 300
   DEALLOCATION_TIME = 60
