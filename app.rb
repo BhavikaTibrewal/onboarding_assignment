@@ -1,0 +1,2 @@
+require './KeyServerRoutes'
+KeyServerRoutes.run!
